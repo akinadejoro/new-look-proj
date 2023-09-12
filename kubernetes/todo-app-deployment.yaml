@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-crud-app-deployment
+  labels:
+    app: django-crud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-crud-app
+  template:
+    metadata:
+      labels:
+        app: django-crud-app
+    spec:
+      containers:
+        - name: django-crud-app
+          imagePullPolicy: Always
+          image: __DOCKER_REPOSITORY__/__IMAGE_NAME__:__IMAGE_TAG__
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: 300m
+              memory: "100Mi"
+            requests:
+              cpu: 100m
+              memory: "50Mi"
+# To schedule pods on based on NodeSelectors
+      nodeSelector:
+        app: django-crud-app
