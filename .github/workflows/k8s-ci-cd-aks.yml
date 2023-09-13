@@ -57,6 +57,11 @@ jobs:
         DOCKER_REPOSITORY: ${{ env.DOCKER_REPOSITORY }}
         IMAGE_NAME: ${{ env.IMAGE_NAME }}
         IMAGE_TAG: ${{ env.IMAGE_TAG }}
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }
         
     # Set the target AKS cluster.
     - uses: Azure/aks-set-context@v1
