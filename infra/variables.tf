@@ -36,7 +36,7 @@ variable "environment" {
 
 # SSH Public Key for Linux VMs
 variable "ssh_public_key" {
-  default = "aksdevsshkey.pub"
+  default = "./linuxcred/aksdevsshkey.pub"
   description = "This variable defines the SSH Public Key for Linux k8s Worker nodes"  
 }
 
@@ -50,7 +50,7 @@ variable "windows_admin_username" {
 # Windows Admin Password for k8s worker nodes
 variable "windows_admin_password" {
   type = string
-  default = "xxxxx"
+  default = "xxxxxxxxxx"
   description = "This variable defines the Windows admin password k8s Worker nodes"  
-  sensitive = true
+#   sensitive = true
 }
