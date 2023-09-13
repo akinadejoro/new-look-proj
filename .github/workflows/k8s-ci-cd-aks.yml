@@ -17,9 +17,8 @@ jobs:
       DOCKER_REPOSITORY: akinadejoro # name of Docker Hub ID
       IMAGE_NAME: python-crud-api
       IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
-      
-      CLUSTER_NAME: aks-cluster
-      RESOURSE_GROUP: terraform-aks-dev-cluster
+      CLUSTER_NAME: terraform-aks-dev-cluster
+      RESOURSE_GROUP: terraform-aks-dev
     
     steps:
 
