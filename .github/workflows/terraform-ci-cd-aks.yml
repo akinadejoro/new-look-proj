@@ -23,9 +23,52 @@ jobs:
     defaults:
       run:
         shell: bash
-        # working-directory: ${{ env.WORKING_DIRECTORY }}
+        working-directory: ${{ env.WORKING_DIRECTORY }}
         
     steps:
+
+    # # Install the latest version of Terraform CLI
+    # - name: Install Terraform
+    #   uses: hashicorp/setup-terraform@v1
+    #   with:
+    #     terraform_version: ${{ env.TERRAFORM_VERSION }}
+        
+    # - name: Terraform Init
+    #   id: init
+    #   env:
+    #     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    #     ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+    #     ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+    #     ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+    #   run:
+    #     terraform init
+  
+    # # Checks that all Terraform configuration files adhere to a canonical format
+    # - name: Terraform Format
+    #   id: format
+    #   run: terraform fmt -check
+    #   continue-on-error: true
+
+    # - name: Terraform Plan
+    #   id: plan
+    #   env:
+    #     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    #     ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+    #     ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+    #     ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+    #     TF_VAR_WINDOWS_ADMIN_PASSWORD: ${{ env.TF_VAR_WINDOWS_ADMIN_PASSWORD }}
+    #   run: |
+    #     terraform plan -no-color 
+
+    # - name: Terraform Apply
+    #   env:
+    #     ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    #     ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+    #     ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+    #     ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+    #     TF_VAR_WINDOWS_ADMIN_PASSWORD: ${{ env.TF_VAR_WINDOWS_ADMIN_PASSWORD }}
+    #   run: terraform apply -auto-approve
+
 
     # Install the latest version of Terraform CLI
     - name: Install Terraform
@@ -42,7 +85,7 @@ jobs:
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       run:
         terraform init
-  
+
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       id: format
@@ -56,7 +99,6 @@ jobs:
         ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
         ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        TF_VAR_WINDOWS_ADMIN_PASSWORD: ${{ env.TF_VAR_WINDOWS_ADMIN_PASSWORD }}
       run: |
         terraform plan -no-color 
 
@@ -66,5 +108,4 @@ jobs:
         ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
         ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        TF_VAR_WINDOWS_ADMIN_PASSWORD: ${{ env.TF_VAR_WINDOWS_ADMIN_PASSWORD }}
       run: terraform apply -auto-approve
