@@ -1,8 +1,3 @@
-# Define Input Variables
-# 1. Azure Location (UKSouth)
-# 2. Azure Resource Group Name 
-# 3. Azure AKS Environment Name (Dev, QA, Prod)
-
 # Azure Location
 variable "location" {
   type = string

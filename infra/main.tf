@@ -37,7 +37,7 @@ provider "azurerm" {
   }
 }
 
-# 3. Terraform Resource Block: Define a Random Pet Resource
+# 3. Terraform Resource Block: Define a Random String Resource
 resource "random_string" "aksrandom" {
   length = 6
   special = false
