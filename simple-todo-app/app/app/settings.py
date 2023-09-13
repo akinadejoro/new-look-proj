@@ -25,7 +25,7 @@ SECRET_KEY = 'ikyaro$ri(c2^q03qm5xjyn51rib38=fp8^0pu^s-9#&uf4!o*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition

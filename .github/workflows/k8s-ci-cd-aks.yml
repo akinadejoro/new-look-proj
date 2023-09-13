@@ -2,7 +2,7 @@ name: k8s-aks-ci-cd
 
 on:
   push:
-    branches: none # [ main ]
+    branches: [ main ]
     paths: 
      - .github/workflows/1-actions-ci-cd-aks.yml
   pull_request:
